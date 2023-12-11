@@ -5,7 +5,7 @@
 
 - name: Installing Mongodb Shell
   ansible.builtin.yum:
-    name: mongogb-org-shell
+    name: mongodb-org-shell
     state: installed
 
 - name: Loading Schema
