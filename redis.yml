@@ -5,7 +5,7 @@
     - name: Installing Redis Repo file
       ansible.builtin.yum:
         name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-        state: Installed
+        state: present
         disable_gpg_check: true
 
     - name: Enabling Redis Module
@@ -19,6 +19,12 @@
     - name: Updating Listen Address in /etc/redis.conf
       ansible.builtin.replace:
         path: /etc/redis.conf
+        regexp: '127.0.0.1'
+        replace: '0.0.0.0'
+
+    - name: Updating Listen Address in /etc/redis/redis.conf
+      ansible.builtin.replace:
+        path: /etc/redis/redis.conf
         regexp: '127.0.0.1'
         replace: '0.0.0.0'
 
