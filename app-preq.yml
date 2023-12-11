@@ -16,4 +16,4 @@
   ansible.builtin.unarchive:
     src: https://roboshop-artifacts.s3.amazonaws.com/{{component}}.zip
     dest: /app
-    remote_source: yes
+    remote_src: yes
