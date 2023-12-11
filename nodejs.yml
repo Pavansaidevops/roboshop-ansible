@@ -1,7 +1,7 @@
 - name: Installing Nodejs
   ansible.builtin.yum:
-    name: nodejs>=18
-    state: installed
+    name: nodejs
+    state: latest
 
 - name: App Pre-Requisites
   ansible.builtin.import_tasks: app-preq.yml
