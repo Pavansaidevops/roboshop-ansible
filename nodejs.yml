@@ -1,8 +1,3 @@
-- name: Copying Mongodb repo file
-  ansible.builtin.copy:
-    src: mongo.repo
-    dest: /etc/yum.repos.d/mongo.repo
-
 - name: Installing Nodejs
   ansible.builtin.yum:
     name: nodejs>=18
@@ -17,8 +12,8 @@
     chdir: /app
 
 - name: Schema Setup
-  ansible.builtin.import: mongodb-schema.yml
+  ansible.builtin.import_tasks: mongodb-schema.yml
 
 - name: Systemd Setup
-  ansible.builtin.import: systemd-setup.yml
+  ansible.builtin.import_tasks: systemd-setup.yml
 
