@@ -8,6 +8,8 @@
 
 - name: Downloading and Building Go Dependencies
   ansible.builtin.shell: go mod init dispatch ; go get ; go build
+  args:
+    chdir: /app
 
 - name: Sysyemd Setup
   ansible.builtin.import_tasks: systemd-setup.yml
