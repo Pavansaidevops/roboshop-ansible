@@ -1,0 +1,18 @@
+- name: Installing Maven
+  ansible.builtin.yum:
+    name: maven
+    state: installed
+
+- name: App Prerequisites
+  ansible.builtin.import_tasks: app-preq.yml
+
+- name: Building {{ component }} Service & Renaming {{ Component }} file name
+  ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
+
+- name: Schema Setup
+  ansible.builtin.import_tasks: mysql-schema.yml
+  when: schema is defined
+
+- name: Systemd Setup
+  ansible.builtin.import_tasks: systemd-setup.yml
+
