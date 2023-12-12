@@ -6,7 +6,7 @@
 - name: App Prerequisites
   ansible.builtin.import_tasks: app-preq.yml
 
-- name: Building {{component}} Service & Renaming {{Component}} file name
+- name: Building shipping Service & Renaming Shipping file name
   ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
   args:
     chdir: /app
