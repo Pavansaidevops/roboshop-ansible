@@ -11,6 +11,8 @@
 
 - name: Downloading Python Requirements
   ansible.builtin.shell: pip3.6 install -r requirements.txt
+  args:
+    chdir: /app
 
 - name: Systemd Setup
   ansible.builtin.import_tasks: systemd-setup.yml
