@@ -5,5 +5,5 @@
     component: shipping
     schema: true
   tasks:
-    - name: Java Setuo
+    - name: Java Setup
       ansible.builtin.import_tasks: java.yml
