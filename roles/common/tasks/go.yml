@@ -1,4 +1,4 @@
-- name: Installing Golang
+-- name: Installing Golang
   ansible.builtin.yum:
     name: golang
     state: installed
@@ -11,5 +11,5 @@
   args:
     chdir: /app
 
-- name: Sysyemd Setup
+- name: Systemd Setup
   ansible.builtin.import_tasks: systemd-setup.yml
